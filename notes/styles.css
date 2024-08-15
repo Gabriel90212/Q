@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body
+{
+    background-image: url(img/1.png);
+    background-size: 115% 205%;
+    background-repeat: no-repeat;
+    background-color: rgb(4, 0, 16);
+    overflow: hidden;
+}
+.wrapper
+{
+    margin: 50px;
+    display: grid;
+    position: relative;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 210px);
+    top: 70px;
+    left: 250px;
+    max-width: 690px;
+    max-height: 420px;
+    overflow-y: auto;
+}
+.wrapper li
+{
+    width: 200px;
+    height: 200px;
+    list-style: none;
+    border-radius: 5px;
+    padding:  15px 20px 20px;
+}
+.add-box, .icon, .bottom-content, .settings .menu li, .popup, header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.add-box
+{
+    background-image: url(img/5.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+.add-box .icon
+{
+    height: 50px;
+    width: 50px;
+    color:rgb(127, 195, 255);
+    font-size: 40px;
+    border-radius: 50%;
+    border: 2px dashed blue;
+    justify-content: center;
+}
+.add-box p
+{
+    color: blue;
+    font-weight: 900;
+    font-size: small;
+    margin-top: 20px;
+}
+.note
+{
+    background-image: url(img/6.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.note p
+{
+    padding-top: 1px;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: Permanent Marker;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    color: rgb(0, 255, 0);
+}
+.note span
+{
+    display: block;
+    margin-top: 1px;
+    color: #8c8b8b;
+    font-size: 16px;
+    font-family: Rock Salt;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+}
+.note .bottom-content
+{
+    padding: 1px;
+    border-top: 1px solid transparent;
+}
+.bottom-content span
+{
+    color: #8c8b8b;
+    font-size: 15px;
+}
+.bottom-content .settings
+{
+    color: #8c8b8b;
+    font-size: 15px;
+    cursor: pointer;
+}
+.settings
+{
+    position: relative;
+    justify-content: space-between;
+    margin-top: 15px;
+
+}
+.settings .menu
+{
+    position: absolute;
+    right: 10px;
+    border-radius: 5px;
+    background-image: url(img/2.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;    
+    transform: scale(0);
+    transition: transform 0.2 ease-out;
+    transform-origin: bottom-right;
+}
+.settings.show .menu
+{
+    transform: scale(1);
+}
+.settings .menu li
+{
+    height: 70px;
+    border-radius: 0;
+    justify-content: center;
+    background: transparent;
+    padding: 17px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.menu li:hover
+{
+    background: #09002b25;
+}
+
+.menu li i
+{
+    padding-right: 8px;
+}
+.popup-box
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.133);
+}
+.popup-box .popup 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    max-width: 600px;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+.popup-box, .popup-box .popup
+{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+.popup-box.show, .popup-box.show .popup
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+.popup .content
+{
+    width: calc(100% - 15px);
+    background-image: url(img/8.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;    
+    border-radius: 5px;
+    padding: 15px 25px;
+}
+.popup .content header
+{
+    padding: 35px;
+    border-bottom: 1px solid transparent;
+}
+.content header p
+{
+    font-size: 2em;
+    font-weight: 900;
+    font-family: Permanent Marker;
+}
+.content .row-title
+{
+    display: block;
+    font-family: Rock Salt;
+
+}
+.content header i
+{
+    color: gray;
+    cursor: pointer;
+    font-size: 1em;
+}
+.content form
+{
+    margin: 15px 25px 35px;
+}
+form .row label 
+{
+    display: block;
+    font-size: 1em;
+    margin-bottom: 20px;
+    font-family: Rock Salt;
+
+}
+.content form :where(input, textarea)
+{
+    width: 80%;
+    height: 50px;
+    outline: none;
+    font-size: 17px;
+    padding: 35px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    border-radius: 4px;
+    justify-content: center;
+    font-family: Charm;
+
+}
+.content form textarea
+{
+    height: 150px;
+    resize: none;
+    padding: 35px;
+
+}
+.content form button
+{
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #0c017f;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;     
+    font-family: Frijole;
+    font-weight: 900;
+
+}
+
+@media only screen and (max-width: 350px) {
+    body{
+        background-image: url(img/4.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat; 
+    }
+    .wrapper li{
+        background-image: url(img/3.png);
+    }
+    .popup .content
+    {
+    background-image: url(img/9.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat; 
+    }  
+}
